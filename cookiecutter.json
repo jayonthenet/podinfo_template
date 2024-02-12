@@ -1,0 +1,17 @@
+{
+    "app_name": "testapp",
+    "project_slug": "{{cookiecutter.app_name}}",
+    "prompts": [
+        {
+            "type": "input",
+            "name": "app_name",
+            "message": "What is the name of your app?"
+        },
+        {
+            "type": "input",
+            "name": "irrelevant",
+            "message": "This is just a test...",
+            "default": "crazy stuff"
+        }
+    ]
+}
