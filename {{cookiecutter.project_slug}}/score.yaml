@@ -1,7 +1,7 @@
 apiVersion: score.dev/v1b1
 
 metadata:
-  name: ${{ values.name | dump }}
+  name: ${{ cookiecutter.app_name }}
 
 service:
   ports:
@@ -16,7 +16,7 @@ containers:
       Hello: World
 
 resources:
-  dns: # We need a DNS record to point to the service 
+  dns: # We need a DNS record to point to the service
     type: dns
   route:
     type: route
