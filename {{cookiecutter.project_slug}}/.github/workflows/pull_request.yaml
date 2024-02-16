@@ -6,8 +6,8 @@ permissions:
   contents: read
   pull-requests: write
 env:
-  APP_NAME: ${{ values.name }}
-  IMAGE: ${{ values.image }}
+  APP_NAME: ${{ cookiecutter.name }}
+  IMAGE: ${{ cookiecutter.name }}
 {%- if cookiecutter.cloud_provider == "aws" -%}
 {% raw %}
   AWS_REGION: ${{ vars.AWS_REGION }}
