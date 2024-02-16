@@ -1,4 +1,4 @@
-name: Deploy ${{ cookiecutter.app_name | capitalize }}
+name: Deploy {{ cookiecutter.app_name | capitalize }}
 
 on:
   push:
@@ -9,7 +9,7 @@ concurrency:
   cancel-in-progress: true
 env:
 {% endraw %}
-  IMAGE: ${{ cookiecutter.app_name }}
+  IMAGE: {{ cookiecutter.app_name }}
 {%- if cookiecutter.cloud_provider == "aws" -%}
 {% raw %}
   AWS_REGION: ${{ vars.AWS_REGION }}
@@ -23,10 +23,10 @@ env:
   GCP_GAR_NAME: ${{ vars.GCP_GAR_NAME }}
 {% endraw %}
 {%- else -%}
-# Unknown cloud provider: ${{ cookiecutter.cloud_provider }}
+# Unknown cloud provider: {{ cookiecutter.cloud_provider }}
 {% endif %}
   SCORE_HUMANITEC_VERSION: '0.8.0'
-  APP_NAME: ${{ cookiecutter.app_name }}
+  APP_NAME: {{ cookiecutter.app_name }}
 
 {% raw %}
 jobs:

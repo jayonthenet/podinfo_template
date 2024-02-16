@@ -1,7 +1,7 @@
 apiVersion: score.dev/v1b1
 
 metadata:
-  name: ${{ cookiecutter.app_name }}
+  name: {{ cookiecutter.app_name }}
 
 service:
   ports:

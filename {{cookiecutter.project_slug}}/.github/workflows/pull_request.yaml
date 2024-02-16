@@ -6,8 +6,8 @@ permissions:
   contents: read
   pull-requests: write
 env:
-  APP_NAME: ${{ cookiecutter.app_name }}
-  IMAGE: ${{ cookiecutter.app_name }}
+  APP_NAME: {{ cookiecutter.app_name }}
+  IMAGE: {{ cookiecutter.app_name }}
 {%- if cookiecutter.cloud_provider == "aws" -%}
 {% raw %}
   AWS_REGION: ${{ vars.AWS_REGION }}
@@ -21,7 +21,7 @@ env:
   GCP_GAR_NAME: ${{ vars.GCP_GAR_NAME }}
 {% endraw %}
 {%- else -%}
-# Unknown cloud provider: ${{ cookiecutter.cloud_provider }}
+# Unknown cloud provider: {{ cookiecutter.cloud_provider }}
 {% endif %}
   BASE_ENVIRONMENT: 'development'
   ENVIRONMENT_TYPE: 'development'

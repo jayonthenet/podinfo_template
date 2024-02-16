@@ -5,7 +5,7 @@ on:
       - closed
 
 env:
-  APP_NAME: ${{ cookiecutter.app_name }}
+  APP_NAME: {{ cookiecutter.app_name }}
   ENVIRONMENT_ID: {% raw %}pr-${{ github.event.number }}{% endraw %}
 
 {% raw %}
