@@ -1,11 +1,18 @@
 {
     "app_name": "testapp",
     "project_slug": "{{cookiecutter.app_name}}",
+    "cloud_provider": "AWS",
     "prompts": [
         {
             "type": "input",
             "name": "app_name",
             "message": "What is the name of your app?"
+        },
+        {
+            "type": "list",
+            "name": "cloud_provider",
+            "message": "Select a cloud provider:",
+            "choices": ["AWS", "GCP", "Azure"]
         },
         {
             "type": "input",
