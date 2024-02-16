@@ -1,4 +1,4 @@
-# Podinfo - ${{ values.name | capitalize }}
+# Podinfo - ${{ cookiecutter.app_name | capitalize }}
 
 A simple score project deploying podinfo.
 
