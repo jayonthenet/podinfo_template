@@ -9,7 +9,7 @@ concurrency:
   cancel-in-progress: true
 env:
 {% endraw %}
-  IMAGE: ${{ values.image }}
+  IMAGE: ${{ cookiecutter.app_name }}
 {%- if cookiecutter.cloud_provider == "aws" -%}
 {% raw %}
   AWS_REGION: ${{ vars.AWS_REGION }}
