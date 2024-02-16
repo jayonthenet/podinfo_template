@@ -10,12 +10,12 @@ concurrency:
 env:
 {% endraw %}
   IMAGE: {{ cookiecutter.app_name }}
-{%- if cookiecutter.cloud_provider == "aws" -%}
+{%- if cookiecutter.cloud_provider == "AWS" -%}
 {% raw %}
   AWS_REGION: ${{ vars.AWS_REGION }}
   AWS_ROLE_ARN: ${{ vars.AWS_ROLE_ARN }}
 {% endraw %}
-{%- elif cookiecutter.cloud_provider == "gcp" -%}
+{%- elif cookiecutter.cloud_provider == "GCP" -%}
 {% raw %}
   GCP_WORKLOAD_IDENTITY_PROVIDER: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
   GCP_SERVICE_ACCOUNT: ${{ vars.GCP_SERVICE_ACCOUNT }}
@@ -41,7 +41,7 @@ jobs:
       - name: Set Tag with SHA
         run: echo "TAG=`echo $GITHUB_SHA | cut -c 1-7`" >> $GITHUB_ENV
 {% endraw %}
-{%- if cookiecutter.cloud_provider == "aws" -%}
+{%- if cookiecutter.cloud_provider == "AWS" -%}
 {% raw %}
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v3
@@ -61,7 +61,7 @@ jobs:
         env:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
 {% endraw %}
-{%- elif cookiecutter.cloud_provider == "gcp" -%}
+{%- elif cookiecutter.cloud_provider == "GCP" -%}
 {% raw %}
       - name: configure gcp credentials
         uses: google-github-actions/auth@v1
