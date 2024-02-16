@@ -26,7 +26,7 @@ env:
 # Unknown cloud provider: ${{ cookiecutter.cloud_provider }}
 {% endif %}
   SCORE_HUMANITEC_VERSION: '0.8.0'
-  APP_NAME: ${{ cookiecutter.name }}
+  APP_NAME: ${{ cookiecutter.app_name }}
 
 {% raw %}
 jobs:
