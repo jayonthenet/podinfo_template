@@ -8,12 +8,12 @@ permissions:
 env:
   APP_NAME: ${{ values.name }}
   IMAGE: ${{ values.image }}
-{%- if values.cloudProvider == "aws" -%}
+{%- if cookiecutter.cloud_provider == "aws" -%}
 {% raw %}
   AWS_REGION: ${{ vars.AWS_REGION }}
   AWS_ROLE_ARN: ${{ vars.AWS_ROLE_ARN }}
 {% endraw %}
-{%- elif values.cloudProvider == "gcp" -%}
+{%- elif cookiecutter.cloud_provider == "gcp" -%}
 {% raw %}
   GCP_WORKLOAD_IDENTITY_PROVIDER: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
   GCP_SERVICE_ACCOUNT: ${{ vars.GCP_SERVICE_ACCOUNT }}
@@ -21,7 +21,7 @@ env:
   GCP_GAR_NAME: ${{ vars.GCP_GAR_NAME }}
 {% endraw %}
 {%- else -%}
-# Unknown cloud provider: ${{ values.cloudProvider }}
+# Unknown cloud provider: ${{ cookiecutter.cloud_provider }}
 {% endif %}
   BASE_ENVIRONMENT: 'development'
   ENVIRONMENT_TYPE: 'development'
@@ -68,7 +68,7 @@ jobs:
       - name: Set Tag with SHA
         run: echo "TAG=`echo $GITHUB_SHA | cut -c 1-7`" >> $GITHUB_ENV
 {% endraw %}
-{%- if values.cloudProvider == "aws" -%}
+{%- if cookiecutter.cloud_provider == "aws" -%}
 {% raw %}
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v3
@@ -88,7 +88,7 @@ jobs:
         env:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
 {% endraw %}
-{%- elif values.cloudProvider == "gcp" -%}
+{%- elif cookiecutter.cloud_provider == "gcp" -%}
 {% raw %}
       - name: configure gcp credentials
         uses: google-github-actions/auth@v1
